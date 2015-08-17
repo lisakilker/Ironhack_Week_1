@@ -1,12 +1,13 @@
 require "io/console"
 class Car
+	attr_accessor :noise
 	@@number_of_cars = IO.read("car2.txt").to_i
 	def initialize(noise)
 		@noise = noise
 		@@number_of_cars +=1
+
 		IO.write("car2.txt", @@number_of_cars)
 	end
-
 
 	def make_noise
 		puts @noise
@@ -42,5 +43,26 @@ loud_car.make_noise
 Car.number_of_cars
 racing_car = RacingCar.new
 racing_car.make_noise
+
+[normal_car, noisy_car, loud_car].each do |car|
+	car.make_noise
+end
+
+sounds = ["Broom", "Meek", "Nyan"]
+var = sounds.map do |sound| #cars = sounds.map {|sound| Car.new(sound)}
+  Car.new(sound)
+end
+
+print var
+
+sounds = ["Broom", "Meek", "Nyan"]
+dict = sounds.each_with_object({}) do |sound, result|
+	result[sound] = Car.new(sound)
+end
+print dict 
+
+var = [normal_car, noisy_car, loud_car].reduce("") {|sound, car| sound + car.noise}
+
+puts var
 
 
