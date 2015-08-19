@@ -40,7 +40,7 @@ class Game
 end
 
 initial_room = Room.new(0, "Eliav", "E")
-north_room = Room.new(1, "A big hungry bear", "N") 
+north_room = Room.new(1, "A big, hungry bear", "N") 
 south_room = Room.new(2, "Gideon", "S") 
 east_room = Room.new(3, "Moriyah", "E") 
 west_room = Room.new(4, "Kanye", "W")
