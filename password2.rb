@@ -10,18 +10,18 @@ class Authenticate
 		if user_name == "Lisa"
 			puts "Great."
 			puts "What is your password?"
-			user_password = gets.chomp
-			IO.write("passwordpush.txt", user_password)
-			check_password(user_password)	
+			@user_password = gets.chomp
+			IO.write("passwordpush.txt", @user_password)
+			check_password	
 		else 
 			puts "That username is incorrect. Try again."
 			ask_user
 		end
 	end
 
-	def check_password(password)
-			IO.read("passwordpull.txt", check_password)
-		if password == "donuts"
+	def check_password
+			real_password = IO.read("passwordpull.txt")
+		if @user_password == real_password
 			puts "You've successfully logged in."
 			puts "Now, enter a word."
 			word
