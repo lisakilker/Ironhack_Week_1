@@ -44,11 +44,11 @@ class Authenticate
 			puts @user_word.upcase
 		elsif user_word == "D"
 			puts @user_word.downcase
-		else puts "That is not an option."
+		else 
+			puts "That is not an option."
 		end
 	end
 end
-
 
 my_decoder = Authenticate.new
 my_decoder.ask_user
