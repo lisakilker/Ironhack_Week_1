@@ -6,11 +6,13 @@ class Car
 end
 
 class Database
-	def initalize(car)
-		@car = car
-		DB.sql("INSERT INTO Cars VALUES #{@car.speed}")
+	def save(car)
+		DB.sql("INSERT INTO Cars VALUES #{car.speed}")
 	end
 end
 
 red_car = Car.new (120)
-Databse.new(my_car)
+my_db = Database.new
+my_db.save(red_car)
+
+
