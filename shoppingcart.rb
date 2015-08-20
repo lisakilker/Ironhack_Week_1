@@ -1,6 +1,3 @@
-require 'pry'
-require 'date'
-
 class Item
     attr_accessor :price
     def initialize(price)
@@ -8,35 +5,40 @@ class Item
     end
   end
 
-class Apples < Item
-  def discount
-    today = Date.today.strftime("%A")
-    if today == "Saturday" || "Sunday"
-      @price -= @price/10
+class Grapes < Item
+  def initialize
+      @price = 15
+    end
+
+  def grapes_discount
+    if date.Date.today
     end
   end
 end
 
 class Oranges < Item
+  def initialize
+      @price = 5
+    end
+    
+  def oranges_discount
+    if date.Date.today
+    end
+  end
 end
 
-class Grapes < Item
-end
-
-class Bananas < Item
-end
-
-class Watermelon < Item
-end
-
-class Vacuum < Item
-  def discount
-      @price -= @price/10 if @price > 100
+class Apples < Item
+  def initialize
+      @price = 10
+    end
+    
+  def apples_discount
+    if date.Date.today
+    end
   end
 end
 
 class Cart
-
   def initialize
       @all_items = []
   end
@@ -49,30 +51,18 @@ class Cart
     puts "Your total is #{@total_cost}."
   end
 
-  def add_item(item, quantity)
-    @item = item
-    @quantity = quantity
-    @quantity.times {@all_items << @item}
+  def add_item(item)
+      @all_items << item
   end
-
-  def discount
-    @total_cost -= @total_cost/20 if @all_items.length > 5 
-    puts "Your total cost with discount applied is #{@total_cost}"
-  end
-
 end
 
 my_cart = Cart.new
-oranges = Oranges.new(2)
-bananas = Bananas.new(3)
+grapes = Grapes.new
+oranges = Oranges.new
+apples = Apples.new
 
-oranges.price
-bananas.price
-bananas.discount
-vacuum = Vacuum.new(150)
-vacuum.discount
+my_cart.add_item(grapes)
+my_cart.add_item(oranges)
+my_cart.add_item(apples)
 
-my_cart.add_item(oranges, 1)
-my_cart.add_item(bananas, 3)
 my_cart.total
-my_cart.discount
