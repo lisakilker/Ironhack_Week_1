@@ -1,12 +1,12 @@
 require "io/console"
 class Car
 	attr_accessor :noise
-	@@number_of_cars = IO.read("car2.txt").to_i
+	@@number_of_cars = IO.read("car.txt").to_i
 	def initialize(noise)
 		@noise = noise
 		@@number_of_cars +=1
 
-		IO.write("car2.txt", @@number_of_cars)
+		IO.write("car.txt", @@number_of_cars)
 	end
 
 	def make_noise
