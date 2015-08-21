@@ -2,7 +2,7 @@ class Board
 	 def initialize
 	 	@@array = Board.new[0,0]
 	 	@@grid = Array.new(x) {Array.new(y)}
-	 end
+	end
 end
 
 class Piece
@@ -81,13 +81,14 @@ end
 
 class ChessValidator
 	def valid_move?
-		convert.Board.new(10) { |i| } [a8] to [0,0]
-		convert.Board.new(10) { |i| } [a1] to [0,7]
+		
 		move [a, 1] to [a, 2]  #is move legal?
 		end
 
 	def array_of_moves
-		end
+		IO.read("simple.txt")each. do { |i| } [a8] to [0,0]
+		IO.read ("simple.txt")each. do { |i| } [a1] to [0,7]
+	end
 
 	def moves
 		Array = array of moves
@@ -95,4 +96,6 @@ class ChessValidator
 my_game = Board.new
 initalize.Board.new
 Board.new = IO.write.foreach("file.txt").map {|line| line.split(' ')}
+
+
 
