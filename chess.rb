@@ -15,7 +15,6 @@ class Piece
 
 class Pawn < Piece # moves up 1 square or 2 if both are vacant
 	def available_moves(x, y)
-		available_moves = IO.readlines("simple_moves.txt")
 		if 
 			puts "LEGAL"
 		else 
@@ -26,7 +25,6 @@ end
 
 class Knight < Piece # moves L shaped
 	def available_moves(x, y)
-		available_moves = IO.readlines("simple_moves.txt")
 		if 
 			puts "LEGAL"
 		else 
@@ -37,7 +35,6 @@ end
 
 class Bishop < Piece # moves any number of vacant squares diagonally
 	def available_moves(x, y)
-		available_moves = IO.readlines("simple_moves.txt")
 		if 
 			puts "LEGAL"
 		else 
@@ -48,7 +45,6 @@ end
 
 class Rook < Piece  # moves any number of vacant squares horizonally or vertically
 	def available_moves(x, y)
-		available_moves = IO.readlines("simple_moves.txt")
 		if 
 			puts "LEGAL"
 		else 
@@ -59,7 +55,6 @@ end
 		 	
 class Queen < Piece  # moves any number of vacant squares horizonally, vertically, or diagnoally
 	def available_moves(x, y)
-		available_moves = IO.readlines("simple_moves.txt")
 		if 
 			puts "LEGAL"
 		else 
@@ -70,7 +65,6 @@ end
 
 class King < Piece # any one square any direction
 	def available_moves(x, y)
-		available_moves = IO.readlines("simple_moves.txt")
 		if 
 			puts "LEGAL"
 		else 
@@ -79,23 +73,28 @@ class King < Piece # any one square any direction
 	end
 end
 
-class ChessValidator
-	def valid_move?
+File.readlines("simple_moves.txt").map do |line| line.split.map(&:to_i)
+end
+# class ChessValidator
+# 	def valid_move?
 		
-		move [a, 1] to [a, 2]  #is move legal?
-		end
+# 		move [a, 1] to [a, 2]  #is move legal?
+# 		end
 
-	def array_of_moves
-		IO.read("simple.txt")each. do { |i| } [a8] to [0,0]
-		IO.read ("simple.txt")each. do { |i| } [a1] to [0,7]
-	end
+# 	def array_of_moves
+# 		IO.read("simple.txt")each. do { |i| } [a8] to [0,0]
+# 		IO.read ("simple.txt")each. do { |i| } [a1] to [0,7]
+# 	end
 
-	def moves
-		Array = array of moves
+# 	def moves
+# 		Array = array of moves
 
-my_game = Board.new
-initalize.Board.new
-Board.new = IO.write.foreach("file.txt").map {|line| line.split(' ')}
+# my_game = Board.new
+# initalize.Board.new
+# Board.new = IO.write.foreach("file.txt").map {|line| line.split(' ')}
 
+# IO.foreach("simple_moves.txt") do |line|
+#     puts line
+# end
 
 
