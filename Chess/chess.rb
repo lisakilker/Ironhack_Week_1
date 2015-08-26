@@ -1,7 +1,9 @@
 class Board
 	 def initialize
-	 	@@array = Board.new[0,0]
-	 	@@grid = Array.new(x) {Array.new(y)}
+	 	@array = Board.new[0,0]
+	 	@grid = Array.new(x) {Array.new(y)}
+	 	File.readlines("simple_moves.txt").map do |line| line.split.map(&:to_i)
+		end
 	end
 end
 
@@ -14,7 +16,7 @@ class Piece
  end
 
 class Pawn < Piece # moves up 1 square or 2 if both are vacant
-	def available_moves(x, y)
+	def available_moves(wp, bp)
 		if 
 			puts "LEGAL"
 		else 
@@ -24,7 +26,7 @@ class Pawn < Piece # moves up 1 square or 2 if both are vacant
 end
 
 class Knight < Piece # moves L shaped
-	def available_moves(x, y)
+	def available_moves(wk, bk)
 		if 
 			puts "LEGAL"
 		else 
@@ -34,7 +36,7 @@ class Knight < Piece # moves L shaped
 end
 
 class Bishop < Piece # moves any number of vacant squares diagonally
-	def available_moves(x, y)
+	def available_moves(wb, bb)
 		if 
 			puts "LEGAL"
 		else 
@@ -44,7 +46,7 @@ class Bishop < Piece # moves any number of vacant squares diagonally
 end
 
 class Rook < Piece  # moves any number of vacant squares horizonally or vertically
-	def available_moves(x, y)
+	def available_moves(wr, br)
 		if 
 			puts "LEGAL"
 		else 
@@ -54,7 +56,7 @@ class Rook < Piece  # moves any number of vacant squares horizonally or vertical
 end
 		 	
 class Queen < Piece  # moves any number of vacant squares horizonally, vertically, or diagnoally
-	def available_moves(x, y)
+	def available_moves
 		if 
 			puts "LEGAL"
 		else 
@@ -64,7 +66,7 @@ class Queen < Piece  # moves any number of vacant squares horizonally, verticall
 end
 
 class King < Piece # any one square any direction
-	def available_moves(x, y)
+	def available_moves
 		if 
 			puts "LEGAL"
 		else 
@@ -73,28 +75,24 @@ class King < Piece # any one square any direction
 	end
 end
 
-File.readlines("simple_moves.txt").map do |line| line.split.map(&:to_i)
+class ChessValidator #This should initialize the board
+	def valid_move
+	end
+	def convert_array
+		array = []
+		convert.array a1 to 0,7
+	end
+	# def array_of_moves
+	# 	IO.readlines("simple_moves.txt")each. do { |i| } [a8] to [0,0] && [a1] to [0,7]
+	# 	end
+	# end
 end
-# class ChessValidator
-# 	def valid_move?
-		
-# 		move [a, 1] to [a, 2]  #is move legal?
-# 		end
 
-# 	def array_of_moves
-# 		IO.read("simple.txt")each. do { |i| } [a8] to [0,0]
-# 		IO.read ("simple.txt")each. do { |i| } [a1] to [0,7]
 # 	end
-
 # 	def moves
-# 		Array = array of moves
+# 		puts.array_of_moves
 
 # my_game = Board.new
 # initalize.Board.new
-# Board.new = IO.write.foreach("file.txt").map {|line| line.split(' ')}
-
-# IO.foreach("simple_moves.txt") do |line|
-#     puts line
-# end
 
 
